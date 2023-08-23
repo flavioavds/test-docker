@@ -1,7 +1,10 @@
 version: '3.1.2'
 
-services:
+networks:
+  mynetwork:
+    driver: bridge
 
+services:
   db:
     image: postgres
     restart: always
@@ -11,3 +14,5 @@ services:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: test
+    networks:
+      - mynetwork
